@@ -103,38 +103,49 @@ export default function Twin() {
     }, []);
 
     return (
-        <div className="flex flex-col h-full bg-gray-50 rounded-lg shadow-lg">
+        <div className="flex flex-col h-full bg-white">
             {/* Header */}
-            <div className="bg-gradient-to-r from-slate-700 to-slate-800 text-white p-4 rounded-t-lg">
-                <h2 className="text-xl font-semibold flex items-center gap-2">
-                    <Bot className="w-6 h-6" />
-                    AI Digital Twin
-                </h2>
-                <p className="text-sm text-slate-300 mt-1">Your AI course companion</p>
+            <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 text-white p-6">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <Bot className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h2 className="text-xl font-bold">Naveen&apos;s Digital Twin</h2>
+                        <p className="text-sm text-white/80 mt-1">Your AI-powered course companion</p>
+                    </div>
+                </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-gray-50 to-white">
                 {messages.length === 0 && (
-                    <div className="text-center text-gray-500 mt-8">
-                        {hasAvatar ? (
-                            <img 
-                                src="/avatar.png" 
-                                alt="Digital Twin Avatar" 
-                                className="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-gray-300"
-                            />
-                        ) : (
-                            <Bot className="w-12 h-12 mx-auto mb-3 text-gray-400" />
-                        )}
-                        <p>Hello! I&apos;m your Digital Twin.</p>
-                        <p className="text-sm mt-2">Ask me anything about AI deployment!</p>
+                    <div className="text-center text-gray-600 mt-12">
+                        <div className="w-24 h-24 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                            {hasAvatar ? (
+                                <img 
+                                    src="/avatar.png" 
+                                    alt="Digital Twin Avatar" 
+                                    className="w-20 h-20 rounded-full border-4 border-white shadow-md"
+                                />
+                            ) : (
+                                <Bot className="w-12 h-12 text-white" />
+                            )}
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Welcome to Naveen&apos;s Digital Twin!</h3>
+                        <p className="text-lg text-gray-600 mb-4">I&apos;m your AI-powered course companion</p>
+                        <div className="flex flex-wrap justify-center gap-2 text-sm text-gray-500">
+                            <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">AI/ML Expert</span>
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">Course Assistant</span>
+                            <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full">24/7 Available</span>
+                        </div>
                     </div>
                 )}
 
                 {messages.map((message) => (
                     <div
                         key={message.id}
-                        className={`flex gap-3 ${
+                        className={`flex gap-4 ${
                             message.role === 'user' ? 'justify-end' : 'justify-start'
                         }`}
                     >
@@ -144,27 +155,27 @@ export default function Twin() {
                                     <img 
                                         src="/avatar.png" 
                                         alt="Digital Twin Avatar" 
-                                        className="w-8 h-8 rounded-full border border-slate-300"
+                                        className="w-10 h-10 rounded-full border-2 border-indigo-200 shadow-sm"
                                     />
                                 ) : (
-                                    <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                                        <Bot className="w-5 h-5 text-white" />
+                                    <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-md">
+                                        <Bot className="w-6 h-6 text-white" />
                                     </div>
                                 )}
                             </div>
                         )}
 
                         <div
-                            className={`max-w-[70%] rounded-lg p-3 ${
+                            className={`max-w-[75%] rounded-2xl p-4 shadow-sm ${
                                 message.role === 'user'
-                                    ? 'bg-slate-700 text-white'
-                                    : 'bg-white border border-gray-200 text-gray-800'
+                                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white'
+                                    : 'bg-white border border-gray-200 text-gray-800 shadow-md'
                             }`}
                         >
-                            <p className="whitespace-pre-wrap">{message.content}</p>
+                            <p className="whitespace-pre-wrap leading-relaxed">{message.content}</p>
                             <p
-                                className={`text-xs mt-1 ${
-                                    message.role === 'user' ? 'text-slate-300' : 'text-gray-500'
+                                className={`text-xs mt-2 ${
+                                    message.role === 'user' ? 'text-indigo-100' : 'text-gray-500'
                                 }`}
                             >
                                 {message.timestamp.toLocaleTimeString()}
@@ -173,8 +184,8 @@ export default function Twin() {
 
                         {message.role === 'user' && (
                             <div className="flex-shrink-0">
-                                <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
-                                    <User className="w-5 h-5 text-white" />
+                                <div className="w-10 h-10 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full flex items-center justify-center shadow-md">
+                                    <User className="w-6 h-6 text-white" />
                                 </div>
                             </div>
                         )}
@@ -182,25 +193,25 @@ export default function Twin() {
                 ))}
 
                 {isLoading && (
-                    <div className="flex gap-3 justify-start">
+                    <div className="flex gap-4 justify-start">
                         <div className="flex-shrink-0">
                             {hasAvatar ? (
                                 <img 
                                     src="/avatar.png" 
                                     alt="Digital Twin Avatar" 
-                                    className="w-8 h-8 rounded-full border border-slate-300"
+                                    className="w-10 h-10 rounded-full border-2 border-indigo-200 shadow-sm"
                                 />
                             ) : (
-                                <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                                    <Bot className="w-5 h-5 text-white" />
+                                <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-md">
+                                    <Bot className="w-6 h-6 text-white" />
                                 </div>
                             )}
                         </div>
-                        <div className="bg-white border border-gray-200 rounded-lg p-3">
+                        <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-md">
                             <div className="flex space-x-2">
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                                <div className="w-3 h-3 bg-indigo-400 rounded-full animate-bounce" />
+                                <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-100" />
+                                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-bounce delay-200" />
                             </div>
                         </div>
                     </div>
@@ -210,23 +221,23 @@ export default function Twin() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
-                <div className="flex gap-2">
+            <div className="border-t border-gray-200 p-6 bg-white">
+                <div className="flex gap-3">
                     <input
                         ref={inputRef}
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={handleKeyPress}
-                        placeholder="Type your message..."
-                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-600 focus:border-transparent text-gray-800"
+                        placeholder="Ask me anything about AI, ML, or your course..."
+                        className="flex-1 px-6 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-800 placeholder-gray-500 shadow-sm transition-all duration-200"
                         disabled={isLoading}
                         autoFocus
                     />
                     <button
                         onClick={sendMessage}
                         disabled={!input.trim() || isLoading}
-                        className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
                         <Send className="w-5 h-5" />
                     </button>
