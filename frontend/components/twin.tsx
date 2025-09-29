@@ -133,7 +133,7 @@ export default function Twin() {
                             )}
                         </div>
                         <h3 className="text-2xl font-bold text-gray-800 mb-2">Welcome to Naveen&apos;s Digital Twin!</h3>
-                        <p className="text-lg text-gray-600 mb-4">I&apos;m your AI-powered course companion</p>
+                        <p className="text-lg text-gray-600 mb-4">I&apos;m your AI-powered companion</p>
                         <div className="flex flex-wrap justify-center gap-2 text-sm text-gray-500">
                             <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full">AI/ML Expert</span>
                             <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">Course Assistant</span>
