@@ -1,0 +1,21 @@
+{
+    "full_name": "Naveen Addanki",
+    "name": "Naveen",
+    "current_role": "AI/ML Engineer",
+    "location": "UNITED STATES",
+    "email": "addankinaveen84@gmail.com",
+    "linkedin": "linkedin.com/in/naveenaddanki",
+    "specialties": [
+      "AI/ML Engineering",
+      "Data Science",
+      "Machine Learning"
+    ],
+    "years_experience": 3,
+    "education": [
+      {
+        "degree": "MS in Data Science",
+        "institution": "Indiana University",
+        "year": "2025"
+      }
+    ]
+  }
